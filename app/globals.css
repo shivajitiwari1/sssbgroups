@@ -988,3 +988,105 @@ footer{background:var(--navy);color:rgba(255,255,255,.5);padding:64px 0 0}
 .site-header{position:sticky;top:0;z-index:200}
 .header-topbar{position:relative;z-index:201}
 .header-main{position:relative;z-index:200}
+
+/* ══════════════════════════════════════
+   HOME PAGE — VISUAL LIFT & ANIMATIONS
+   ══════════════════════════════════════ */
+
+/* ── Hero: fix hardcoded teal colors → orange ── */
+.hero-bg-grad{background:radial-gradient(ellipse at 18% 60%,rgba(232,93,4,.18) 0%,transparent 54%),radial-gradient(ellipse at 80% 15%,rgba(245,158,11,.12) 0%,transparent 44%),radial-gradient(ellipse at 60% 90%,rgba(232,93,4,.08) 0%,transparent 38%);animation:bgPulse 8s ease-in-out infinite}
+@keyframes bgPulse{0%,100%{opacity:1}50%{opacity:.65}}
+.hero-badge{background:rgba(232,93,4,.15);border:1px solid rgba(232,93,4,.32);color:rgba(255,255,255,.92)}
+.hero-card::before{background:linear-gradient(90deg,var(--orange),var(--amber))}
+
+/* ── Hero: animated grid pan ── */
+.hero-grid{animation:gridPan 20s linear infinite}
+@keyframes gridPan{0%{background-position:0 0}100%{background-position:58px 58px}}
+
+/* ── Hero: CSS particle dots ── */
+.hero-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-particles::before,.hero-particles::after{content:'';position:absolute;border-radius:50%;background:rgba(232,93,4,.25);animation:particleDrift 12s ease-in-out infinite alternate}
+.hero-particles::before{width:6px;height:6px;top:20%;left:15%;animation-duration:14s}
+.hero-particles::after{width:4px;height:4px;top:60%;left:75%;animation-duration:10s;animation-delay:-4s;background:rgba(245,158,11,.3)}
+@keyframes particleDrift{0%{transform:translate(0,0) scale(1);opacity:.3}33%{transform:translate(30px,-20px) scale(1.3);opacity:.7}66%{transform:translate(-15px,40px) scale(.8);opacity:.5}100%{transform:translate(50px,10px) scale(1.1);opacity:.4}}
+
+/* ── Hero: card float animation ── */
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero-card-anim:nth-child(1){animation:floatCard 5s ease-in-out infinite}
+.hero-card-anim:nth-child(2){animation:floatCard 5s ease-in-out 1.6s infinite}
+.hero-card-anim:nth-child(3){animation:floatCard 5s ease-in-out 3.2s infinite}
+
+/* ── Hero: trust bar ── */
+.hero-trust{display:flex;align-items:center;gap:8px;margin-top:22px;flex-wrap:wrap}
+.hero-trust-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:rgba(255,255,255,.28)}
+.hero-trust-city{font-size:12px;color:rgba(255,255,255,.6);font-weight:500;padding:4px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;transition:all .2s}
+.hero-trust-city:hover{background:rgba(232,93,4,.2);border-color:rgba(232,93,4,.4);color:#fff}
+
+/* ── Hero CTA button pulse ── */
+.hero-btn-primary{position:relative;overflow:hidden}
+.hero-btn-primary::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-110%) skewX(-20deg);transition:transform .5s ease}
+.hero-btn-primary:hover::after{transform:translateX(110%) skewX(-20deg)}
+
+/* ── Section headers: orange accent underline ── */
+.section-header{text-align:center;margin-bottom:48px}
+.section-header h2{position:relative;display:inline-block}
+.section-header h2::after{content:'';display:block;width:48px;height:3px;background:linear-gradient(90deg,var(--orange),var(--amber));border-radius:2px;margin:14px auto 0;transition:width .3s}
+.section-header:hover h2::after{width:80px}
+
+/* ── Service cards: numbered bg indicator ── */
+.service-card{position:relative;overflow:hidden}
+.service-card[data-num]::after{content:attr(data-num);position:absolute;bottom:16px;right:18px;font-family:'Barlow Condensed',sans-serif;font-size:64px;font-weight:800;color:var(--orange);opacity:.07;line-height:1;letter-spacing:-3px;pointer-events:none;transition:opacity .3s}
+.service-card:hover[data-num]::after{opacity:.13}
+
+/* ── Stats strip: orange glow accent ── */
+.stats-strip{position:relative;overflow:hidden}
+.stats-strip::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--orange),var(--amber),var(--orange),transparent)}
+
+/* ── Why cards: use orange colors ── */
+.why-icon{background:var(--orange-light) !important;border:1px solid rgba(232,93,4,.15) !important}
+.why-card:hover .why-icon{background:var(--orange) !important;color:#fff !important}
+.why-card::after{background:linear-gradient(to bottom,var(--orange),var(--amber)) !important}
+
+/* ── CTA banner: animated shimmer ── */
+.cta-banner::after{content:'';position:absolute;top:0;left:-100%;right:0;bottom:0;background:linear-gradient(90deg,transparent,rgba(232,93,4,.06),transparent);width:200%;animation:shimmer 5s ease-in-out infinite}
+@keyframes shimmer{0%{transform:translateX(-50%)}100%{transform:translateX(50%)}}
+
+/* ── Scroll-reveal animations ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+
+.service-card{animation:fadeUp .5s ease both}
+.service-card:nth-child(1){animation-delay:.05s}
+.service-card:nth-child(2){animation-delay:.15s}
+.service-card:nth-child(3){animation-delay:.25s}
+.why-card{animation:fadeUp .5s ease both}
+.why-card:nth-child(1){animation-delay:.05s}
+.why-card:nth-child(2){animation-delay:.12s}
+.why-card:nth-child(3){animation-delay:.19s}
+.why-card:nth-child(4){animation-delay:.26s}
+.why-card:nth-child(5){animation-delay:.33s}
+.why-card:nth-child(6){animation-delay:.40s}
+.testi-card-rich{animation:scaleIn .5s ease both}
+.testi-card-rich:nth-child(1){animation-delay:.05s}
+.testi-card-rich:nth-child(2){animation-delay:.15s}
+.testi-card-rich:nth-child(3){animation-delay:.25s}
+.project-card{animation:fadeUp .5s ease both}
+.project-card:nth-child(1){animation-delay:.05s}
+.project-card:nth-child(2){animation-delay:.15s}
+.project-card:nth-child(3){animation-delay:.25s}
+.stat-item{animation:fadeIn .6s ease both}
+.stat-item:nth-child(1){animation-delay:.1s}
+.stat-item:nth-child(2){animation-delay:.2s}
+.stat-item:nth-child(3){animation-delay:.3s}
+.stat-item:nth-child(4){animation-delay:.4s}
+
+/* ── Mobile: hide hero cards, compact trust bar ── */
+@media(max-width:768px){
+  .hero-cards{display:none}
+  .hero-trust{justify-content:flex-start}
+  .hero-btn-primary{width:100%;justify-content:center}
+}
+@media(max-width:480px){
+  .hero-trust-city{font-size:11px;padding:3px 10px}
+}

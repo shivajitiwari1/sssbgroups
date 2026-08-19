@@ -12,20 +12,32 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="hero">
+        <div className="hero-bg-grad" aria-hidden="true" />
+        <div className="hero-grid" aria-hidden="true" />
+        <div className="hero-particles" aria-hidden="true" />
         <div className="container hero-inner">
           <div className="hero-content">
-            <span className="hero-badge">{hero.badge}</span>
+            <span className="hero-badge">
+              <span className="hero-dot" />
+              {hero.badge}
+            </span>
             <h1 className="hero-title">{hero.title}</h1>
             <p className="hero-subtitle">{hero.subtitle}</p>
             <p className="hero-desc">{hero.description}</p>
             <div className="hero-actions">
-              <Link href={hero.cta1.href} className="btn-teal">{hero.cta1.label}</Link>
+              <Link href={hero.cta1.href} className="btn-teal hero-btn-primary">{hero.cta1.label}</Link>
               <Link href={hero.cta2.href} className="btn-ghost">{hero.cta2.label}</Link>
+            </div>
+            <div className="hero-trust">
+              <span className="hero-trust-label">Serving</span>
+              {['Delhi', 'Haryana', 'U.P.', 'Rajasthan'].map((city) => (
+                <span key={city} className="hero-trust-city">{city}</span>
+              ))}
             </div>
           </div>
           <div className="hero-cards">
             {featuredProjects.map((p) => (
-              <div key={p.id} className="hero-card">
+              <div key={p.id} className="hero-card hero-card-anim">
                 <span className="hero-card-type">{p.type}</span>
                 <h3>{p.name}</h3>
                 <p>{p.location}</p>
@@ -58,8 +70,8 @@ export default function HomePage() {
             <p>Comprehensive construction services delivered by expert professionals.</p>
           </div>
           <div className="services-grid">
-            {featuredServices.map((s) => (
-              <div key={s.title} className="service-card">
+            {featuredServices.map((s, i) => (
+              <div key={s.title} className="service-card" data-num={String(i + 1).padStart(2, '0')}>
                 <div className="service-icon">{s.icon}</div>
                 <h3>{s.title}</h3>
                 <p>{s.description}</p>
@@ -133,10 +145,14 @@ export default function HomePage() {
           </div>
           <div className="testi-grid">
             {approvedTestimonials.map((t) => (
-              <div key={t.id} className="testi-card">
-                <div className="stars">{'★'.repeat(t.rating)}</div>
-                <blockquote>"{t.text}"</blockquote>
-                <p className="testi-author">— {t.name}</p>
+              <div key={t.id} className="testi-card-rich">
+                <div className="testi-quote-mark">"</div>
+                <div className="testi-stars">{'★'.repeat(t.rating)}</div>
+                <p className="testi-body">{t.text}</p>
+                <div className="testi-footer">
+                  <div className="testi-avatar">{t.name[0]}</div>
+                  <div className="testi-name">{t.name}</div>
+                </div>
               </div>
             ))}
           </div>
