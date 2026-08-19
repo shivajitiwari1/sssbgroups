@@ -19,7 +19,7 @@ export default function Counter({ target, suffix = '' }: CounterProps) {
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
-          const duration = 1500;
+          const duration = 1800;
           const steps = 60;
           const increment = target / steps;
           let current = 0;
@@ -34,7 +34,7 @@ export default function Counter({ target, suffix = '' }: CounterProps) {
           }, duration / steps);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
 
     observer.observe(el);

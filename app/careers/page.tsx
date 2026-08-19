@@ -64,41 +64,51 @@ export default function CareersPage() {
           <div className="jobs-list">
             {jobs.map((job) => (
               <div key={job.title} className="job-card">
-                <div className="job-header">
-                  <div>
-                    <h3>{job.title}</h3>
+                <div className="job-card-top">
+                  <div className="job-info">
+                    <h3 className="job-title">{job.title}</h3>
                     <div className="job-meta">
-                      <span className="job-type">{job.type}</span>
-                      <span className="job-location">{job.location}</span>
+                      <span className="job-type-badge">{job.type}</span>
+                      <span className="job-location-tag">📍 {job.location}</span>
                     </div>
                   </div>
                   <a
                     href={`mailto:info@ssbgroups.in?subject=Application: ${job.title}`}
-                    className="btn-teal"
+                    className="btn-teal job-apply-btn"
                   >
                     Apply Now
                   </a>
                 </div>
                 <p className="job-desc">{job.description}</p>
-                <ul className="job-requirements">
-                  {job.requirements.map((r) => (
-                    <li key={r}>{r}</li>
-                  ))}
-                </ul>
+                <div className="job-requirements-wrap">
+                  <span className="job-req-label">Requirements</span>
+                  <ul className="job-requirements">
+                    {job.requirements.map((r) => (
+                      <li key={r}>{r}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section section-alt">
-        <div className="container cta-inner">
-          <h2>Don't See Your Role?</h2>
-          <p>
-            We're always open to talented professionals. Send your CV to{' '}
-            <a href="mailto:info@ssbgroups.in">info@ssbgroups.in</a> with the subject
-            "Open Application".
-          </p>
+      <section className="open-role-banner">
+        <div className="container open-role-inner">
+          <div className="open-role-text">
+            <h2>Don't See Your Role?</h2>
+            <p>
+              We're always open to talented professionals and tradespeople.
+              Send your CV and we'll keep you in mind for upcoming positions.
+            </p>
+          </div>
+          <a
+            href="mailto:info@ssbgroups.in?subject=Open Application"
+            className="btn-teal"
+          >
+            Send Open Application
+          </a>
         </div>
       </section>
     </>

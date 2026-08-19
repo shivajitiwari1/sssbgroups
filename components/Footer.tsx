@@ -8,14 +8,24 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div className="footer-brand">
-          <div className="logo">
-            <span className="logo-mark">S</span>
-            <span className="logo-text">SSB GROUP</span>
+          <div className="footer-logo">
+            <span className="footer-logo-mark">S</span>
+            <div>
+              <strong className="footer-logo-name">SSB GROUP</strong>
+              <span className="footer-logo-sub">Promoters · Engineers · Contractors</span>
+            </div>
           </div>
-          <p className="footer-tagline">Promoters · Engineers · Contractors</p>
           <p className="footer-desc">
             One of the most rapidly growing construction organizations in the NCR Area — Delhi, Haryana, Rajasthan, U.P.
           </p>
+          <a
+            href={`https://wa.me/${contact.whatsapp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-whatsapp"
+          >
+            <span>💬</span> WhatsApp Us
+          </a>
         </div>
 
         <div className="footer-col">
@@ -31,36 +41,38 @@ export default function Footer() {
         </div>
 
         <div className="footer-col">
-          <h4>Contact</h4>
+          <h4>Contact Us</h4>
           <address>
-            <p>{contact.address}</p>
-            <p>
-              <a href={`tel:${contact.phones[0].replace(/\s/g,'')}`}>{contact.phones[0]}</a>
-            </p>
-            <p>
-              <a href={`tel:${contact.phones[1].replace(/\s/g,'')}`}>{contact.phones[1]}</a>
-            </p>
-            <p>
+            <div className="footer-contact-item">
+              <span className="footer-contact-icon">📍</span>
+              <p>{contact.address}</p>
+            </div>
+            <div className="footer-contact-item">
+              <span className="footer-contact-icon">📞</span>
+              <div>
+                <a href={`tel:${contact.phones[0].replace(/\s/g,'')}`}>{contact.phones[0]}</a>
+                <br />
+                <a href={`tel:${contact.phones[1].replace(/\s/g,'')}`}>{contact.phones[1]}</a>
+              </div>
+            </div>
+            <div className="footer-contact-item">
+              <span className="footer-contact-icon">✉️</span>
               <a href={`mailto:${contact.email}`}>{contact.email}</a>
-            </p>
-            <p>{contact.hours}</p>
+            </div>
+            <div className="footer-contact-item">
+              <span className="footer-contact-icon">🕐</span>
+              <p>{contact.hours}</p>
+            </div>
           </address>
         </div>
       </div>
 
+      <div className="footer-divider-line" />
+
       <div className="footer-bottom">
-        <div className="container">
+        <div className="container footer-bottom-inner">
           <p>&copy; {new Date().getFullYear()} SSB Group. All rights reserved.</p>
-          <p>
-            <a
-              href={`https://wa.me/${contact.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="whatsapp-link"
-            >
-              WhatsApp Us
-            </a>
-          </p>
+          <p className="footer-bottom-right">Built with ❤️ for NCR&apos;s construction industry</p>
         </div>
       </div>
     </footer>

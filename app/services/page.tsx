@@ -23,7 +23,7 @@ export default function ServicesPage() {
 
       <section className="section">
         <div className="container">
-          <div className="services-grid">
+          <div className="services-grid services-grid-full">
             {services.map((s) => (
               <div key={s.title} className="service-card">
                 <div className="service-icon">{s.icon}</div>
