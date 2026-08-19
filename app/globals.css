@@ -904,3 +904,87 @@ footer{background:var(--navy);color:rgba(255,255,255,.5);padding:64px 0 0}
   .testi-stats-inner{grid-template-columns:1fr 1fr}
   .services-grid-full{grid-template-columns:1fr!important}
 }
+
+/* ══════════════════════════════════════
+   HEADER & MOBILE NAV — FULL REWRITE
+   ══════════════════════════════════════ */
+
+/* ── Topbar ── */
+.header-topbar{background:var(--charcoal2);padding:8px 0}
+.topbar-inner{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.topbar-pill{font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);background:rgba(255,255,255,.07);padding:4px 12px;border-radius:20px;border:1px solid rgba(255,255,255,.1);white-space:nowrap}
+.topbar-contact{display:flex;gap:14px;align-items:center;font-size:13px}
+.topbar-contact a{color:rgba(255,255,255,.65);transition:color .2s}
+.topbar-contact a:hover{color:var(--amber)}
+.topbar-sep{color:rgba(255,255,255,.2)}
+
+/* ── Header main ── */
+.header-main{background:rgba(255,255,255,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 1px 0 var(--border)}
+.site-header .header-main{position:sticky;top:0;z-index:200}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.logo-mark{width:38px;height:38px;background:linear-gradient(135deg,var(--orange),var(--amber));border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:19px;color:#fff;font-weight:800;flex-shrink:0}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:700;color:var(--charcoal);white-space:nowrap}
+
+/* ── Desktop nav ── */
+.desktop-nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
+.desktop-nav-link{padding:8px 12px;font-size:13.5px;font-weight:500;color:var(--muted);border-radius:8px;transition:all .2s;text-decoration:none;white-space:nowrap;position:relative}
+.desktop-nav-link::after{content:'';position:absolute;bottom:4px;left:12px;right:12px;height:1.5px;background:var(--orange);transform:scaleX(0);transition:transform .25s;border-radius:1px}
+.desktop-nav-link:hover{color:var(--charcoal)}
+.desktop-nav-link:hover::after{transform:scaleX(1)}
+
+/* ── Header actions ── */
+.header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.header-cta{padding:10px 20px;font-size:13.5px}
+
+/* ── Hamburger ── */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;border:1.5px solid var(--border);background:#fff;border-radius:8px;cursor:pointer;transition:border-color .2s}
+.hamburger:hover{border-color:var(--orange)}
+.hamburger span{display:block;width:20px;height:2px;background:var(--charcoal);border-radius:2px;transition:all .3s ease}
+.hamburger.is-open{border-color:var(--orange);background:var(--orange-light)}
+.hamburger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg);background:var(--orange)}
+.hamburger.is-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:var(--orange)}
+
+/* ── Mobile overlay ── */
+.mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:280;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+
+/* ── Mobile nav drawer ── */
+.mob-nav{position:fixed;top:0;right:0;bottom:0;width:min(320px,88vw);background:#fff;z-index:285;overflow-y:auto;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(0,0,0,.18)}
+.mob-nav-open{transform:translateX(0)}
+
+.mob-nav-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:2px solid var(--orange);background:#fff;position:sticky;top:0;z-index:1}
+.mob-nav-brand{display:flex;align-items:center;gap:10px}
+.mob-nav-mark{width:34px;height:34px;background:linear-gradient(135deg,var(--orange),var(--amber));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:17px;color:#fff;font-weight:800}
+.mob-nav-title{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;color:var(--charcoal)}
+.mob-nav-close{background:var(--off-white);border:1px solid var(--border);color:var(--muted);width:34px;height:34px;border-radius:8px;font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;line-height:1}
+.mob-nav-close:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+
+.mob-nav-links{flex:1;padding:8px 0}
+.mob-nav-link{display:flex;align-items:center;padding:14px 20px;font-size:16px;font-weight:500;color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--border);transition:all .15s;position:relative}
+.mob-nav-link::before{content:'';width:3px;height:0;background:var(--orange);position:absolute;left:0;top:50%;transform:translateY(-50%);border-radius:0 2px 2px 0;transition:height .2s}
+.mob-nav-link:hover{color:var(--orange);background:var(--orange-light);padding-left:26px}
+.mob-nav-link:hover::before{height:60%}
+
+.mob-nav-footer{padding:20px;border-top:1px solid var(--border);background:var(--off-white)}
+.mob-nav-cta{width:100%;justify-content:center;padding:14px;font-size:15px;border-radius:10px;margin-bottom:16px}
+.mob-nav-contact{display:flex;flex-direction:column;gap:6px}
+.mob-nav-contact a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s;text-align:center}
+.mob-nav-contact a:hover{color:var(--orange)}
+
+/* ── Responsive: show hamburger, hide desktop nav ── */
+@media(max-width:900px){
+  .desktop-nav{display:none}
+  .header-cta{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:480px){
+  .header-topbar{display:none}
+  .header-inner{height:62px}
+  .logo-text{font-size:19px}
+}
+
+/* ── Fix: header-main sticky on all pages ── */
+.site-header{position:sticky;top:0;z-index:200}
+.header-topbar{position:relative;z-index:201}
+.header-main{position:relative;z-index:200}
