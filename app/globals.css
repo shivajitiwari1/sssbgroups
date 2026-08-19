@@ -1090,3 +1090,118 @@ footer{background:var(--navy);color:rgba(255,255,255,.5);padding:64px 0 0}
 @media(max-width:480px){
   .hero-trust-city{font-size:11px;padding:3px 10px}
 }
+
+/* ══════════════════════════════════════
+   ALL-PAGES IMPROVEMENTS v3
+   ══════════════════════════════════════ */
+
+/* ── Page hero: fix teal → orange, add animation ── */
+.page-hero::before{background:radial-gradient(ellipse at 20% 65%,rgba(232,93,4,.18) 0%,transparent 55%),radial-gradient(ellipse at 80% 25%,rgba(245,158,11,.1) 0%,transparent 45%);animation:pageHeroGlow 8s ease-in-out infinite}
+@keyframes pageHeroGlow{0%,100%{opacity:1}50%{opacity:.5}}
+
+/* ── HOME: Color-filled service card boxes ── */
+.services-grid:not(.services-grid-full) .service-card:nth-child(1){background:linear-gradient(135deg,var(--charcoal) 0%,var(--charcoal2) 100%);border-color:transparent;color:#fff}
+.services-grid:not(.services-grid-full) .service-card:nth-child(1) h3{color:#fff}
+.services-grid:not(.services-grid-full) .service-card:nth-child(1) p{color:rgba(255,255,255,.62)}
+.services-grid:not(.services-grid-full) .service-card:nth-child(1) .service-icon{background:rgba(232,93,4,.18);border-radius:14px;padding:10px;display:inline-flex}
+
+.services-grid:not(.services-grid-full) .service-card:nth-child(2){background:linear-gradient(135deg,var(--orange) 0%,#c44f03 100%);border-color:transparent;color:#fff;box-shadow:0 8px 32px rgba(232,93,4,.35)}
+.services-grid:not(.services-grid-full) .service-card:nth-child(2) h3{color:#fff}
+.services-grid:not(.services-grid-full) .service-card:nth-child(2) p{color:rgba(255,255,255,.82)}
+.services-grid:not(.services-grid-full) .service-card:nth-child(2) .service-icon{background:rgba(255,255,255,.2);border-radius:14px;padding:10px;display:inline-flex}
+.services-grid:not(.services-grid-full) .service-card:nth-child(2)[data-num]::after{color:#fff;opacity:.12}
+
+.services-grid:not(.services-grid-full) .service-card:nth-child(3){background:linear-gradient(135deg,var(--amber) 0%,#d97706 100%);border-color:transparent;color:#fff}
+.services-grid:not(.services-grid-full) .service-card:nth-child(3) h3{color:#fff}
+.services-grid:not(.services-grid-full) .service-card:nth-child(3) p{color:rgba(255,255,255,.82)}
+.services-grid:not(.services-grid-full) .service-card:nth-child(3) .service-icon{background:rgba(255,255,255,.25);border-radius:14px;padding:10px;display:inline-flex}
+.services-grid:not(.services-grid-full) .service-card:nth-child(3)[data-num]::after{color:#fff;opacity:.12}
+
+/* ── HOME: Stats strip — colorful accent boxes ── */
+.stats-strip .stat-item{border-right:none;border-radius:var(--radius);transition:transform .2s,box-shadow .2s}
+.stats-strip .stat-item:nth-child(1){background:rgba(232,93,4,.14);border:1px solid rgba(232,93,4,.25)}
+.stats-strip .stat-item:nth-child(2){background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.28)}
+.stats-strip .stat-item:nth-child(3){background:rgba(232,93,4,.1);border:1px solid rgba(232,93,4,.2)}
+.stats-strip .stat-item:nth-child(4){background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.stats-strip .stats-grid{gap:16px;padding:52px 0}
+.stats-strip .stat-item:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.25)}
+
+/* ── HOME: Why cards — colorful distinct icon boxes ── */
+.why-grid .why-card:nth-child(1) .why-icon{background:linear-gradient(135deg,#fff4ed,#ffe0cc);color:var(--orange)}
+.why-grid .why-card:nth-child(2) .why-icon{background:linear-gradient(135deg,#fef3c7,#fde68a);color:#d97706}
+.why-grid .why-card:nth-child(3) .why-icon{background:linear-gradient(135deg,#dbeafe,#bfdbfe);color:#2563eb}
+.why-grid .why-card:nth-child(4) .why-icon{background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#065f46}
+.why-grid .why-card:nth-child(5) .why-icon{background:linear-gradient(135deg,#fce7f3,#fbcfe8);color:#be185d}
+.why-grid .why-card:nth-child(6) .why-icon{background:linear-gradient(135deg,#ede9fe,#ddd6fe);color:#7c3aed}
+.why-icon{width:56px;height:56px;transition:transform .3s,background .3s !important}
+.why-card:hover .why-icon{transform:scale(1.1) rotate(-8deg)}
+.why-card h3{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--charcoal);margin-bottom:8px}
+.why-card p{font-size:14px;color:var(--muted);line-height:1.7}
+
+/* ── ABOUT: Pillar cards with accent border ── */
+.pillar-item{border-left:3px solid var(--orange);transition:all .2s;position:relative}
+.pillar-item:nth-child(2){border-left-color:var(--amber)}
+.pillar-item:nth-child(3){border-left-color:var(--charcoal2)}
+.pillar-item:nth-child(4){border-left-color:var(--orange-hover)}
+.pillar-item:hover{background:#fff;box-shadow:var(--shadow-sm);transform:translateX(4px)}
+
+/* ── ABOUT: Mission/Vision cards with top accent ── */
+.mv-card{border-top:4px solid var(--orange);transition:all .25s}
+.mv-card:last-child{border-top-color:var(--amber)}
+.mv-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+
+/* ── ABOUT: Leader cards ── */
+.leader-card{overflow:hidden;position:relative}
+.leader-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--amber))}
+.leader-avatar{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--amber));display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:800;color:#fff;margin:0 auto 16px;box-shadow:0 4px 20px rgba(232,93,4,.35)}
+.leader-role{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--orange);background:var(--orange-light);padding:3px 12px;border-radius:20px;margin-bottom:12px}
+
+/* ── ABOUT: Value/Core value cards ── */
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.value-card{position:relative;overflow:hidden;transition:all .25s;animation:fadeUp .5s ease both}
+.value-card:nth-child(1){animation-delay:.05s}
+.value-card:nth-child(2){animation-delay:.1s}
+.value-card:nth-child(3){animation-delay:.15s}
+.value-card:nth-child(4){animation-delay:.2s}
+.value-card:nth-child(5){animation-delay:.25s}
+.value-card:nth-child(6){animation-delay:.3s}
+.value-card:hover{border-color:var(--orange);transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.value-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:linear-gradient(to bottom,var(--orange),var(--amber));transition:height .3s}
+.value-card:hover::before{height:100%}
+.value-icon{display:block;font-size:30px;margin-bottom:14px;transition:transform .3s}
+.value-card:hover .value-icon{transform:scale(1.2) rotate(-8deg)}
+.value-card h3{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;color:var(--charcoal);margin-bottom:6px}
+.value-card p{font-size:14px;color:var(--muted);line-height:1.65}
+
+/* ── SERVICES: Full-page icon treatment ── */
+.services-grid-full .service-card .service-icon{font-size:2.8rem;width:72px;height:72px;border-radius:18px;display:inline-flex;align-items:center;justify-content:center;margin:0 auto 18px;background:var(--orange-light);border:1px solid rgba(232,93,4,.18);transition:all .3s}
+.services-grid-full .service-card:hover .service-icon{background:var(--orange);transform:rotate(-8deg) scale(1.1)}
+
+/* ── SERVICES: Process step number gradient ── */
+.step-number{background:linear-gradient(135deg,var(--orange),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:.25;font-size:64px}
+
+/* ── PROJECTS: Card polish ── */
+.project-card{transition:all .3s cubic-bezier(.4,0,.2,1)}
+.project-type{background:linear-gradient(135deg,var(--orange-light),#fff4ed);border:1px solid rgba(232,93,4,.2);font-weight:700}
+
+/* ── CAREERS: Job card top accent on hover ── */
+.job-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--amber));transform:scaleX(0);transform-origin:left;transition:transform .3s;border-radius:var(--radius2) var(--radius2) 0 0}
+.job-card:hover::before{transform:scaleX(1)}
+
+/* ── CONTACT: Info cards with left accent ── */
+.contact-card{padding-left:26px !important;position:relative}
+.contact-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--orange),var(--amber));border-radius:3px 0 0 3px}
+.contact-card:nth-child(2)::before{background:linear-gradient(to bottom,var(--amber),#d97706)}
+.contact-card:nth-child(3)::before{background:linear-gradient(to bottom,var(--charcoal),var(--charcoal2))}
+.contact-card:nth-child(4)::before{background:linear-gradient(to bottom,var(--charcoal2),var(--muted))}
+
+/* ── Responsive: values/why grid ── */
+@media(max-width:768px){
+  .values-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .values-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .stats-strip .stats-grid{grid-template-columns:1fr 1fr;gap:10px;padding:32px 0}
+}
