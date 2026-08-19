@@ -1205,3 +1205,105 @@ footer{background:var(--navy);color:rgba(255,255,255,.5);padding:64px 0 0}
   .why-grid{grid-template-columns:1fr}
   .stats-strip .stats-grid{grid-template-columns:1fr 1fr;gap:10px;padding:32px 0}
 }
+
+/* ══════════════════════════════════════
+   HOME: FEATURED PROJECTS — COLORFUL
+   ══════════════════════════════════════ */
+
+.projects-home-section{background:linear-gradient(160deg,var(--charcoal) 0%,#0f1318 100%);position:relative;overflow:hidden}
+.projects-home-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 50%,rgba(232,93,4,.1) 0%,transparent 55%),radial-gradient(ellipse at 85% 30%,rgba(245,158,11,.08) 0%,transparent 50%);pointer-events:none}
+.projects-header h2{color:#fff}
+.projects-header p{color:rgba(255,255,255,.55)}
+.projects-header .section-tag{background:rgba(232,93,4,.2);border-color:rgba(232,93,4,.4);color:var(--amber)}
+.projects-header h2::after{background:linear-gradient(90deg,var(--orange),var(--amber))}
+
+.project-card-home{padding:0;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:all .3s cubic-bezier(.4,0,.2,1)}
+.project-card-home:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.08);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+
+/* Colored band per card */
+.project-card-band{padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid rgba(255,255,255,.08)}
+.project-card-home[data-type="residential"] .project-card-band{background:linear-gradient(135deg,rgba(232,93,4,.35),rgba(232,93,4,.15))}
+.project-card-home[data-type="commercial"] .project-card-band{background:linear-gradient(135deg,rgba(37,99,235,.4),rgba(37,99,235,.18))}
+.project-card-home[data-type="hospitality"] .project-card-band{background:linear-gradient(135deg,rgba(124,58,237,.4),rgba(124,58,237,.18))}
+.project-card-home .project-type{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2);font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:3px 10px;border-radius:20px}
+.project-card-home .project-status-completed{background:rgba(16,185,129,.2);color:#6ee7b7;border:1px solid rgba(16,185,129,.3);font-size:10px;font-weight:600;text-transform:capitalize;padding:3px 10px;border-radius:20px}
+
+/* Card body */
+.project-card-body-home{padding:24px}
+.project-num{font-family:'Barlow Condensed',sans-serif;font-size:56px;font-weight:800;line-height:1;letter-spacing:-3px;margin-bottom:10px;background:linear-gradient(135deg,var(--orange),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:.35}
+.project-card-home[data-type="commercial"] .project-num{background:linear-gradient(135deg,#60a5fa,#3b82f6);-webkit-background-clip:text;background-clip:text}
+.project-card-home h3{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:5px;line-height:1.2}
+.project-card-home .project-location{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:10px}
+.project-card-home .project-location::before{content:'📍';font-size:11px}
+.project-card-home .project-desc{font-size:14px;color:rgba(255,255,255,.58);line-height:1.7;margin-bottom:16px}
+.project-card-home .project-highlights{list-style:none;padding:0;display:flex;flex-direction:column;gap:7px;border-top:1px solid rgba(255,255,255,.08);padding-top:14px}
+.project-card-home .project-highlights li{font-size:13px;color:rgba(255,255,255,.72);display:flex;align-items:center;gap:9px}
+.project-card-home[data-type="residential"] .project-highlights li::before{content:'✓';width:18px;height:18px;background:rgba(232,93,4,.3);color:var(--amber);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+.project-card-home[data-type="commercial"] .project-highlights li::before{content:'✓';width:18px;height:18px;background:rgba(59,130,246,.3);color:#93c5fd;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+.project-card-home[data-type="hospitality"] .project-highlights li::before{content:'✓';width:18px;height:18px;background:rgba(167,139,250,.3);color:#c4b5fd;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+
+/* CTA button on dark background */
+.projects-cta-btn{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.8)}
+.projects-cta-btn:hover{border-color:var(--orange);color:#fff;background:var(--orange)}
+
+/* ══════════════════════════════════════
+   HOME: WHY CHOOSE US — COLORFUL
+   ══════════════════════════════════════ */
+
+.why-home-section{background:var(--off-white)}
+/* Alternate cards: every 2nd gets a bold colored fill */
+.why-home-section .why-card[data-idx="1"]{background:linear-gradient(135deg,var(--charcoal) 0%,var(--charcoal2) 100%);border-color:transparent;box-shadow:0 8px 32px rgba(0,0,0,.2)}
+.why-home-section .why-card[data-idx="1"] h3{color:#fff}
+.why-home-section .why-card[data-idx="1"] p{color:rgba(255,255,255,.58)}
+.why-home-section .why-card[data-idx="1"] .why-icon{background:rgba(245,158,11,.25) !important;color:var(--amber) !important}
+
+.why-home-section .why-card[data-idx="3"]{background:linear-gradient(135deg,var(--orange) 0%,#c44f03 100%);border-color:transparent;box-shadow:0 8px 32px rgba(232,93,4,.35)}
+.why-home-section .why-card[data-idx="3"] h3{color:#fff}
+.why-home-section .why-card[data-idx="3"] p{color:rgba(255,255,255,.8)}
+.why-home-section .why-card[data-idx="3"] .why-icon{background:rgba(255,255,255,.22) !important;color:#fff !important}
+.why-home-section .why-card[data-idx="3"]::after{background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent) !important}
+
+.why-home-section .why-card[data-idx="5"]{background:linear-gradient(135deg,var(--amber) 0%,#d97706 100%);border-color:transparent;box-shadow:0 8px 28px rgba(245,158,11,.35)}
+.why-home-section .why-card[data-idx="5"] h3{color:#fff}
+.why-home-section .why-card[data-idx="5"] p{color:rgba(255,255,255,.82)}
+.why-home-section .why-card[data-idx="5"] .why-icon{background:rgba(255,255,255,.25) !important;color:#fff !important}
+.why-home-section .why-card[data-idx="5"]::after{background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent) !important}
+
+/* ══════════════════════════════════════
+   HOME: TESTIMONIALS — DARK & GLASSY
+   ══════════════════════════════════════ */
+
+.testi-home-section{background:linear-gradient(160deg,#0d1117 0%,var(--charcoal) 50%,#0d1117 100%);position:relative;overflow:hidden}
+.testi-home-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 60%,rgba(232,93,4,.12) 0%,transparent 50%),radial-gradient(ellipse at 80% 40%,rgba(245,158,11,.08) 0%,transparent 50%);pointer-events:none}
+.testi-home-section .section-header h2{color:#fff}
+.testi-home-section .section-tag{background:rgba(232,93,4,.2);border-color:rgba(232,93,4,.35);color:var(--amber)}
+.testi-home-section .section-header h2::after{background:linear-gradient(90deg,var(--orange),var(--amber))}
+
+/* Glassy testimonial cards */
+.testi-home-card{background:rgba(255,255,255,.06) !important;border:1px solid rgba(255,255,255,.1) !important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:all .3s ease}
+.testi-home-card:hover{background:rgba(255,255,255,.1) !important;border-color:rgba(232,93,4,.35) !important;transform:translateY(-5px);box-shadow:0 20px 60px rgba(0,0,0,.4) !important}
+
+/* Card color accent by index */
+.testi-home-card[data-idx="0"]{border-top:2px solid var(--orange) !important}
+.testi-home-card[data-idx="1"]{border-top:2px solid var(--amber) !important}
+.testi-home-card[data-idx="2"]{border-top:2px solid #60a5fa !important}
+
+.testi-home-section .testi-quote-mark{color:var(--orange);opacity:.5;font-size:64px}
+.testi-home-section .testi-stars{color:var(--amber);font-size:18px;letter-spacing:3px}
+.testi-home-section .testi-body{color:rgba(255,255,255,.75)}
+.testi-home-section .testi-footer{border-top-color:rgba(255,255,255,.08)}
+.testi-home-section .testi-name{color:rgba(255,255,255,.9) !important;font-size:13.5px}
+.testi-home-section .testi-avatar{background:linear-gradient(135deg,var(--orange),var(--amber));box-shadow:0 4px 16px rgba(232,93,4,.4)}
+.testi-home-section .testi-card-rich::after{background:transparent !important}
+
+/* CTA btn on dark background */
+.testi-cta-btn{border-color:rgba(255,255,255,.25) !important;color:rgba(255,255,255,.8) !important}
+.testi-cta-btn:hover{border-color:var(--orange) !important;color:#fff !important;background:rgba(232,93,4,.15) !important}
+
+/* Responsive */
+@media(max-width:768px){
+  .project-card-home{margin-bottom:4px}
+  .why-home-section .why-card[data-idx="1"],
+  .why-home-section .why-card[data-idx="3"],
+  .why-home-section .why-card[data-idx="5"]{box-shadow:none}
+}

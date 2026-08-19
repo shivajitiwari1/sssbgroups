@@ -85,39 +85,42 @@ export default function HomePage() {
       </section>
 
       {/* Portfolio Preview */}
-      <section className="section section-alt">
+      <section className="section projects-home-section">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header projects-header">
             <span className="section-tag">Our Work</span>
             <h2>Featured Projects</h2>
             <p>A selection of successfully completed projects across NCR.</p>
           </div>
           <div className="projects-grid">
-            {featuredProjects.map((p) => (
-              <div key={p.id} className="project-card">
-                <div className="project-card-header">
+            {featuredProjects.map((p, i) => (
+              <div key={p.id} className="project-card project-card-home" data-type={p.type.toLowerCase()} data-idx={i}>
+                <div className="project-card-band">
                   <span className="project-type">{p.type}</span>
-                  <span className="project-status">{p.status}</span>
+                  <span className={`project-status ${p.status === 'completed' ? 'project-status-completed' : ''}`}>{p.status}</span>
                 </div>
-                <h3>{p.name}</h3>
-                <p className="project-location">{p.location}</p>
-                <p className="project-desc">{p.description}</p>
-                <ul className="project-highlights">
-                  {p.highlights.map((h) => (
-                    <li key={h}>{h}</li>
-                  ))}
-                </ul>
+                <div className="project-card-body-home">
+                  <div className="project-num">0{i + 1}</div>
+                  <h3>{p.name}</h3>
+                  <p className="project-location">{p.location}</p>
+                  <p className="project-desc">{p.description}</p>
+                  <ul className="project-highlights">
+                    {p.highlights.map((h) => (
+                      <li key={h}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
           <div className="section-cta">
-            <Link href="/projects" className="btn-outline">View All Projects</Link>
+            <Link href="/projects" className="btn-outline projects-cta-btn">View All Projects</Link>
           </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="section">
+      <section className="section why-home-section">
         <div className="container">
           <div className="section-header">
             <span className="section-tag">Why SSB Group</span>
@@ -125,8 +128,8 @@ export default function HomePage() {
             <p>The values and capabilities that set us apart.</p>
           </div>
           <div className="why-grid">
-            {whyUs.map((w) => (
-              <div key={w.title} className="why-card">
+            {whyUs.map((w, i) => (
+              <div key={w.title} className="why-card" data-idx={i}>
                 <span className="why-icon">{w.icon}</span>
                 <h3>{w.title}</h3>
                 <p>{w.description}</p>
@@ -137,15 +140,15 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Snippet */}
-      <section className="section section-alt">
+      <section className="section testi-home-section">
         <div className="container">
           <div className="section-header">
             <span className="section-tag">Client Feedback</span>
             <h2>What Our Clients Say</h2>
           </div>
-          <div className="testi-grid">
-            {approvedTestimonials.map((t) => (
-              <div key={t.id} className="testi-card-rich">
+          <div className="testi-grid testi-home-grid">
+            {approvedTestimonials.map((t, i) => (
+              <div key={t.id} className="testi-card-rich testi-home-card" data-idx={i}>
                 <div className="testi-quote-mark">"</div>
                 <div className="testi-stars">{'★'.repeat(t.rating)}</div>
                 <p className="testi-body">{t.text}</p>
@@ -157,7 +160,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="section-cta">
-            <Link href="/testimonials" className="btn-outline">Read All Testimonials</Link>
+            <Link href="/testimonials" className="btn-outline testi-cta-btn">Read All Testimonials</Link>
           </div>
         </div>
       </section>
