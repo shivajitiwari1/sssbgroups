@@ -6,16 +6,6 @@ const { contact } = siteData;
 export default function Footer() {
   return (
     <footer className="site-footer">
-      {/* Marquee */}
-      <div className="marquee-strip">
-        <div className="marquee-track">
-          {Array.from({ length: 2 }, () =>
-            ['Delhi NCR', 'Haryana', 'Rajasthan', 'Uttar Pradesh', 'ISO Certified', 'RERA Compliant', 'Turnkey Projects', 'Since 2008']
-          ).flat().map((item, i) => (
-            <span key={i} className="marquee-item">{item}</span>
-          ))}
-        </div>
-      </div>
       <div className="container footer-grid">
         <div className="footer-brand">
           <div className="footer-logo">
@@ -78,6 +68,17 @@ export default function Footer() {
       </div>
 
       <div className="footer-divider-line" />
+
+      {/* Marquee */}
+      <div className="marquee-strip">
+        <div className="marquee-track">
+          {Array.from({ length: 2 }, () =>
+            ['Delhi NCR', 'Haryana', 'Rajasthan', 'Uttar Pradesh', 'ISO Certified', 'RERA Compliant', 'Turnkey Projects', 'Since 2008']
+          ).flat().map((item, i) => (
+            <span key={i} className="marquee-item">{item}</span>
+          ))}
+        </div>
+      </div>
 
       <div className="footer-bottom">
         <div className="container footer-bottom-inner">

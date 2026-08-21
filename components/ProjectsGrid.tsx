@@ -9,16 +9,8 @@ type Project = {
   type: string;
   description: string;
   highlights: string[];
+  image: string;
 };
-
-const gradients = [
-  'linear-gradient(135deg,#0a1628 0%,#1a3060 100%)',
-  'linear-gradient(135deg,#0f2044 0%,#1a8c7d 100%)',
-  'linear-gradient(135deg,#1a3060 0%,#c9963a 60%,#0a1628 100%)',
-  'linear-gradient(135deg,#0a1628 0%,#13705f 100%)',
-  'linear-gradient(135deg,#0f2044 0%,#a67829 100%)',
-  'linear-gradient(135deg,#1a3060 0%,#1a8c7d 50%,#c9963a 100%)',
-];
 
 const filters = ['All', 'Residential', 'Commercial', 'Hospitality'];
 
@@ -46,7 +38,8 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
         {filtered.map((p, i) => (
           <div key={p.id} className="proj-v4">
             <div className="proj-v4-img">
-              <div className="proj-v4-gradient" style={{ background: gradients[i % gradients.length] }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={p.image} alt={p.name} />
               <span className="proj-v4-num">{String(i + 1).padStart(2, '0')}</span>
               <span className={`proj-v4-pill ${p.status === 'Completed' ? 'status-delivered' : 'status-upcoming'}`}>
                 {p.status}

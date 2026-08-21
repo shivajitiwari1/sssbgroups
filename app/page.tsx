@@ -4,12 +4,6 @@ import Counter from '@/components/Counter';
 import RevealObserver from '@/components/RevealObserver';
 import TestiRotator from '@/components/TestiRotator';
 
-const gradients = [
-  'linear-gradient(135deg,#0a1628 0%,#1a3060 100%)',
-  'linear-gradient(135deg,#0f2044 0%,#1a8c7d 100%)',
-  'linear-gradient(135deg,#1a3060 0%,#c9963a 60%,#0a1628 100%)',
-];
-
 export default function HomePage() {
   const featured = siteData.projects.slice(0, 3);
   const services = siteData.services.slice(0, 5);
@@ -56,12 +50,16 @@ export default function HomePage() {
             <div className="hero-v4-right">
               {featured.map((p, i) => (
                 <div key={p.id} className={`fp-card fp-card-anim-${i + 1}`}>
-                  <div className="fp-card-label">{p.type}</div>
-                  <div className="fp-card-name">{p.name}</div>
-                  <div className="fp-card-loc">📍 {p.location}</div>
-                  <span className={`fp-card-status ${p.status === 'Completed' ? 'fp-status-done' : 'fp-status-upcoming'}`}>
-                    {p.status}
-                  </span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={p.image} alt={p.name} className="fp-card-img" />
+                  <div className="fp-card-body">
+                    <div className="fp-card-label">{p.type}</div>
+                    <div className="fp-card-name">{p.name}</div>
+                    <div className="fp-card-loc">📍 {p.location}</div>
+                    <span className={`fp-card-status ${p.status === 'Completed' ? 'fp-status-done' : 'fp-status-upcoming'}`}>
+                      {p.status}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -138,7 +136,8 @@ export default function HomePage() {
             {featured.map((p, i) => (
               <div key={p.id} className="proj-v4 reveal" data-type={p.type.toLowerCase()}>
                 <div className="proj-v4-img">
-                  <div className="proj-v4-gradient" style={{ background: gradients[i % gradients.length] }} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={p.image} alt={p.name} />
                   <span className="proj-v4-num">{String(i + 1).padStart(2, '0')}</span>
                   <span className={`proj-v4-pill ${p.status === 'Completed' ? 'status-delivered' : 'status-upcoming'}`}>
                     {p.status}

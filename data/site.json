@@ -83,55 +83,61 @@
       "id": "kalka-home",
       "name": "Kalka Home Developers",
       "location": "Faridabad, Haryana",
-      "status": "completed",
+      "status": "Completed",
       "type": "Residential",
       "description": "Full turnkey residential construction delivered on schedule.",
-      "highlights": ["Turnkey execution", "On-time delivery", "Residential complex"]
+      "highlights": ["Turnkey execution", "On-time delivery", "Residential complex"],
+      "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=700&h=480&fit=crop&q=80"
     },
     {
       "id": "sp-gaur-plaza",
       "name": "SP Gaur Plaza",
       "location": "Noida West, U.P.",
-      "status": "completed",
+      "status": "Completed",
       "type": "Commercial",
       "description": "Commercial plaza civil works and structural engineering.",
-      "highlights": ["Commercial structure", "RCC framework", "Civil & finishing works"]
+      "highlights": ["Commercial structure", "RCC framework", "Civil & finishing works"],
+      "image": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&h=480&fit=crop&q=80"
     },
     {
       "id": "thd-royal-court",
       "name": "THD Royal Court Phase-I",
       "location": "Neemrana, Rajasthan",
-      "status": "completed",
+      "status": "Completed",
       "type": "Residential",
       "description": "Phase-I of premium residential township in Neemrana.",
-      "highlights": ["Township project", "Phase-I delivery", "Multi-block residential"]
+      "highlights": ["Township project", "Phase-I delivery", "Multi-block residential"],
+      "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&h=480&fit=crop&q=80"
     },
     {
       "id": "optus-hometel",
       "name": "Optus Hometel",
       "location": "Vasundhara Nagar, Bhiwadi",
-      "status": "completed",
+      "status": "Completed",
       "type": "Hospitality",
       "description": "Hospitality-grade construction with precision finishing.",
-      "highlights": ["Hospitality project", "Premium finishing", "Structural works"]
+      "highlights": ["Hospitality project", "Premium finishing", "Structural works"],
+      "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=700&h=480&fit=crop&q=80"
     },
     {
       "id": "piyush-city",
       "name": "Piyush City",
       "location": "Tatarpur, Bhiwadi",
-      "status": "completed",
+      "status": "Completed",
       "type": "Residential",
       "description": "Large-scale residential township civil construction.",
-      "highlights": ["Township scale", "Multi-phase delivery", "Civil works"]
+      "highlights": ["Township scale", "Multi-phase delivery", "Civil works"],
+      "image": "https://images.unsplash.com/photo-1582407947304-fd86f28320c7?w=700&h=480&fit=crop&q=80"
     },
     {
       "id": "thd-status-residency",
       "name": "THD Status Residency",
       "location": "Bhiwadi, Rajasthan",
-      "status": "completed",
+      "status": "Completed",
       "type": "Residential",
       "description": "Premium residential complex structural and finishing works.",
-      "highlights": ["Residential complex", "Structural RCC", "Interior finishing"]
+      "highlights": ["Residential complex", "Structural RCC", "Interior finishing"],
+      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&h=480&fit=crop&q=80"
     }
   ],
   "testimonials": [
