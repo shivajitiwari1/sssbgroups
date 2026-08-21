@@ -1589,7 +1589,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.5);padding:64px 0 0}
 .testi-col-author{font-size:13px;font-weight:600;color:var(--navy)}
 
 /* ── Marquee strip ── */
-.marquee-strip{background:var(--navy);border-top:1px solid rgba(255,255,255,.05);padding:16px 0;overflow:hidden}
+.marquee-strip{background:var(--navy);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(201,150,58,.25);padding:16px 0;overflow:hidden}
 .marquee-track{display:flex;gap:48px;white-space:nowrap;animation:marqueeScroll 28s linear infinite}
 .marquee-track:hover{animation-play-state:paused}
 @keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
