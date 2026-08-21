@@ -1,29 +1,28 @@
 'use client';
 import { useState } from 'react';
 import siteData from '@/data/site.json';
+import RevealObserver from '@/components/RevealObserver';
 
-const { contact } = siteData;
+type FormState = { name: string; email: string; phone: string; type: string; message: string };
+type Status = 'idle' | 'sending' | 'sent' | 'error';
+
+const enquiryTypes = ['Project Enquiry', 'Service Enquiry', 'Quotation Request', 'Manpower Supply', 'Career Enquiry', 'Other'];
+
+const contactRows = [
+  { icon: '📍', label: 'Address', val: siteData.contact.address },
+  { icon: '📞', label: 'Phone', val: siteData.contact.phones.join(' · ') },
+  { icon: '✉️', label: 'Email', val: siteData.contact.email },
+  { icon: '🕐', label: 'Hours', val: siteData.contact.hours },
+];
 
 export default function ContactPage() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    type: 'Project Enquiry',
-    message: '',
-  });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [form, setForm] = useState<FormState>({ name: '', email: '', phone: '', type: '', message: '' });
+  const [status, setStatus] = useState<Status>('idle');
 
-  const enquiryTypes = [
-    'Project Enquiry',
-    'Service Enquiry',
-    'Quotation Request',
-    'Manpower Supply',
-    'Career Enquiry',
-    'Other',
-  ];
+  const set = (k: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+    setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  async function handleSubmit(e: React.FormEvent) {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
     try {
@@ -32,145 +31,124 @@ export default function ContactPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      if (res.ok) {
-        setStatus('sent');
-        setForm({ name: '', email: '', phone: '', type: 'Project Enquiry', message: '' });
-      } else {
-        setStatus('error');
-      }
+      setStatus(res.ok ? 'sent' : 'error');
     } catch {
       setStatus('error');
     }
-  }
+  };
 
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <span className="section-tag">Reach Us</span>
-          <h1>Contact SSB Group</h1>
+      <RevealObserver />
+
+      {/* Page Hero */}
+      <section className="page-hero-v4">
+        <div className="container page-hero-v4-inner">
+          <span className="page-hero-v4-badge">Reach Us</span>
+          <h1>Contact<br />SSB Group</h1>
           <p>Get in touch for project enquiries, quotations, or general information.</p>
+          <div className="page-hero-v4-rule" />
         </div>
       </section>
 
+      {/* Contact layout */}
       <section className="section">
-        <div className="container contact-layout">
-          {/* Info Cards */}
-          <div className="contact-info">
-            <div className="contact-card">
-              <h3>Address</h3>
-              <p>{contact.address}</p>
-            </div>
-            <div className="contact-card">
-              <h3>Phone</h3>
-              <p><a href={`tel:${contact.phones[0].replace(/\s/g,'')}`}>{contact.phones[0]}</a></p>
-              <p><a href={`tel:${contact.phones[1].replace(/\s/g,'')}`}>{contact.phones[1]}</a></p>
-            </div>
-            <div className="contact-card">
-              <h3>Email</h3>
-              <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
-            </div>
-            <div className="contact-card">
-              <h3>Hours</h3>
-              <p>{contact.hours}</p>
-            </div>
-            <a
-              href={`https://wa.me/${contact.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-teal whatsapp-cta"
-            >
-              Chat on WhatsApp
-            </a>
-          </div>
-
-          {/* Enquiry Form */}
-          <div className="contact-form-wrap">
-            <h2>Send an Enquiry</h2>
-            {status === 'sent' ? (
-              <div className="form-success">
-                Thank you! We'll get back to you within 24 hours.
+        <div className="container">
+          <div className="contact-v4-layout">
+            {/* Left — info rows */}
+            <div className="reveal-left">
+              <span className="section-label">Get in Touch</span>
+              <h2 className="section-title" style={{ marginBottom: 24 }}>Contact Info</h2>
+              <div className="contact-info-rows">
+                {contactRows.map((r) => (
+                  <div key={r.label} className="contact-info-row">
+                    <div className="contact-info-icon">{r.icon}</div>
+                    <div>
+                      <span className="contact-info-label">{r.label}</span>
+                      <div className="contact-info-val">{r.val}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="contact-form">
-                <div className="form-group">
-                  <label htmlFor="name">Full Name *</label>
-                  <input
-                    id="name"
-                    type="text"
-                    required
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  />
-                </div>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="email">Email *</label>
-                    <input
-                      id="email"
-                      type="email"
-                      required
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    />
+              <a
+                href={`https://wa.me/${siteData.contact.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="whatsapp-cta"
+                style={{ marginTop: 24 }}
+              >
+                💬 Chat on WhatsApp
+              </a>
+            </div>
+
+            {/* Right — form */}
+            <div className="reveal-right">
+              <div className="contact-form-v4">
+                <span className="section-label">Enquiry Form</span>
+                <h2 className="section-title" style={{ marginBottom: 28 }}>Send an Enquiry</h2>
+
+                {status === 'sent' && (
+                  <div className="alert-success" style={{ marginBottom: 20 }}>
+                    ✓ Thank you! We&apos;ll get back to you within 24 hours.
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="phone">Phone</label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    />
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="type">Enquiry Type</label>
-                  <select
-                    id="type"
-                    value={form.type}
-                    onChange={(e) => setForm({ ...form, type: e.target.value })}
-                  >
-                    {enquiryTypes.map((t) => (
-                      <option key={t} value={t}>{t}</option>
-                    ))}
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="message">Message *</label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    required
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  />
-                </div>
-                {status === 'error' && (
-                  <p className="form-error">Something went wrong. Please try again.</p>
                 )}
-                <button type="submit" className="btn-teal" disabled={status === 'sending'}>
-                  {status === 'sending' ? 'Sending…' : 'Send Enquiry'}
-                </button>
-              </form>
-            )}
+                {status === 'error' && (
+                  <div className="alert-error" style={{ marginBottom: 20 }}>
+                    Something went wrong. Please try again or call us directly.
+                  </div>
+                )}
+
+                <form onSubmit={submit}>
+                  <div className="form-row">
+                    <div className="float-group">
+                      <input id="name" type="text" placeholder=" " value={form.name} onChange={set('name')} required />
+                      <label className="float-label" htmlFor="name">Full Name *</label>
+                    </div>
+                    <div className="float-group">
+                      <input id="email" type="email" placeholder=" " value={form.email} onChange={set('email')} required />
+                      <label className="float-label" htmlFor="email">Email Address *</label>
+                    </div>
+                  </div>
+                  <div className="float-group">
+                    <input id="phone" type="tel" placeholder=" " value={form.phone} onChange={set('phone')} />
+                    <label className="float-label" htmlFor="phone">Phone Number</label>
+                  </div>
+                  <div className="float-group">
+                    <select id="etype" value={form.type} onChange={set('type')} required>
+                      <option value="" disabled>Select type</option>
+                      {enquiryTypes.map((t) => <option key={t} value={t}>{t}</option>)}
+                    </select>
+                    <label className="float-label" htmlFor="etype">Enquiry Type *</label>
+                  </div>
+                  <div className="float-group">
+                    <textarea id="msg" placeholder=" " value={form.message} onChange={set('message')} required />
+                    <label className="float-label" htmlFor="msg">Your Message *</label>
+                  </div>
+                  <button type="submit" className="btn btn-teal btn-full btn-lg" disabled={status === 'sending'}>
+                    {status === 'sending' ? 'Sending…' : 'Send Enquiry →'}
+                  </button>
+                  <p className="form-note">We respond within 24 business hours.</p>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {contact.mapEmbed && (
-        <section className="map-section">
-          <iframe
-            src={contact.mapEmbed}
-            width="100%"
-            height="400"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </section>
-      )}
+      {/* CTA */}
+      <section className="cta-v4">
+        <div className="container">
+          <div className="cta-v4-inner">
+            <div className="reveal-left">
+              <p className="cta-v4-title">Prefer a<br /><em style={{ color: 'var(--gold)' }}>Direct Call?</em></p>
+              <p className="cta-v4-sub">{siteData.contact.phones.join(' · ')}</p>
+            </div>
+            <div className="cta-v4-btns reveal-right">
+              <a href={`tel:${siteData.contact.phones[0]?.replace(/\s/g, '')}`} className="btn btn-teal btn-lg">Call Now</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
