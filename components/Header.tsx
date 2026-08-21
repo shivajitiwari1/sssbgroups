@@ -20,6 +20,17 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
+  // Scroll shadow
+  useEffect(() => {
+    const header = document.querySelector('.site-header') as HTMLElement | null;
+    const onScroll = () => {
+      if (!header) return;
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   const close = () => setMenuOpen(false);
 
   return (
